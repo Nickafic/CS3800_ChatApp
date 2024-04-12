@@ -7,3 +7,4 @@
 7) run "python client.py"
 8) follow prompt on terminal to create chat
 9) repeat steps 5-8 to create more clients
+10) to disconnect a client send this message "!DISCONNECT"
