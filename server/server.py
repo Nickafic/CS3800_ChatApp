@@ -17,9 +17,7 @@ server.bind(ADDR)
 clients = []
 
 def broadcast(message, exception_client=None):
-    """Send a message to all clients except the sender (exception_client)."""
     for client in clients:
-        if client != exception_client:
             try:
                 client.send(message.encode(FORMAT))
             except Exception as e:
@@ -31,7 +29,7 @@ def handle_client(client):
         username = client.recv(1024).decode(FORMAT)  # Expect the first message to be the username
         welcome_message = f"{username} has joined the chat!"
         broadcast(welcome_message, exception_client=client)  # Notify all other clients
-        client.send("Connected to the server!".encode(FORMAT))  # Welcome the new client
+        client.send("Connected to the server!".encode(FORMAT)) 
 
         while True:
             message = client.recv(1024).decode(FORMAT)

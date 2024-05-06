@@ -46,9 +46,7 @@ def send(event=None):  # event is passed by binders.
         ssl_client.close()
         top.quit()
     else:
-        message = f"{nickname}: {msg}"
-        ssl_client.send(message.encode(FORMAT))
-        msg_list.insert(tkinter.END, message)  # Echo the sent message locally
+        ssl_client.send(msg.encode(FORMAT))  # Send only the message
 
 def on_closing(event=None):
     """This function is to be called when the window is closed."""
